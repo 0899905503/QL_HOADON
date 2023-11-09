@@ -5,6 +5,11 @@ namespace QL_HOADON
         public Form1()
         {
             InitializeComponent();
+            LoadForm();
+        }
+        void LoadForm()
+        {
+            Database.SQLConnect.Open();
         }
     }
 }
