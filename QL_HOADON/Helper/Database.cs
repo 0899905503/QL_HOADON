@@ -7,4 +7,5 @@ using Microsoft.Data.SqlClient;
 public class Database
 {
     public static SqlConnection SQLConnect = new SqlConnection(System.Configuration.ConfigurationSettings.AppSettings["connectionString"]);
+    public static SqlCommand SqlCommand = new SqlCommand("", SQLConnect);
 }
