@@ -84,17 +84,17 @@ VALUES
 
 INSERT INTO HOADON (SOHD, KHACHHANG, DIACHI, DIENTHOAI, NGAYHD, MANV)
 VALUES
-        ('HD001', N'Lê Anh Tuấn', N'Phú Yên', '986804133', '2018-09-12', 'NV001'),
-        ('HD002', N'Bùi Long Thành Nguyễn Thành Trung', N'Nha Trang', '980789128', '2018-08-22', 'NV001'),
-        ('HD003', N'Trần Thái Phong', N'Phú Yên', '987678677', '2018-07-23', 'NV002'),
+        ('HD001', N'Lê Anh Tuấn', N'Phú Yên', '0986804133', '2018-09-12', 'NV001'),
+        ('HD002', N'Bùi Long Thành', N'Nha Trang', '0980789128', '2018-08-22', 'NV001'),
+        ('HD002', N'Nguyễn Thành Trung', N'Nha Trang', '0987678677', '2018-07-23', 'NV001'),
         ('HD004', N'Trần Thái Phong', N'Phú Yên', '0970908921', '2018-09-09', 'NV002'),
-        ('HD005', N'Trần Nguyễn Thảo', N'Bình Định.', '912456709', '2018-04-04', 'NV002'),
+        ('HD005', N'Trần Nguyễn Thảo', N'Bình Định.', '0912456709', '2018-04-04', 'NV002'),
         ('HD006', N'Lê Hồng Anh', N'Phú Yên', '0912345678', '2018-02-02', 'NV003'),
         ('HD007', N'Trần Thành Long', N'Nha Trang', '0912345678', '2018-01-11', 'NV007'),
         ('HD008', N'Nguyễn Lan Hương', N'Phú Yên', '0912090989', '2018-03-04', 'NV003'),
         ('HD009', N'Trần Thái Nguyên', N'Bình Định', '0981907845', '2018-06-06', 'NV005'),
-        ('HD010', N'Trần Quang Nghị', N'Phú Yên', '986804138', '2018-08-20', 'NV006'),
-        ('HD011', N'Lê Thái Hòa', N'Nha Trang', '912986789', '2018-04-04', 'NV003');
+        ('HD010', N'Trần Quang Nghị', N'Phú Yên', '0986804138', '2018-08-20', 'NV006'),
+        ('HD011', N'Lê Thái Hòa', N'Nha Trang', '0912986789', '2018-04-04', 'NV003');
 
 
 INSERT INTO CTHOADON (SOHD, MAHH, SOLUONG)
