@@ -223,7 +223,6 @@
             MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "CHƯƠNG TRÌNH QUẢN LÍ BÁN HÀNG";
-            Load += Form1_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
