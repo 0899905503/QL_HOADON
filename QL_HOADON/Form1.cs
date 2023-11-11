@@ -1,4 +1,5 @@
-﻿using QL_HOANDON;
+﻿using Microsoft.Data.SqlClient;
+using QL_HOANDON;
 
 namespace QL_HOADON
 {
@@ -7,7 +8,6 @@ namespace QL_HOADON
         public Form1()
         {
             InitializeComponent();
-            Database.SQLConnect.Open();
         }
 
         private void quảnLíPhòngBanToolStripMenuItem_Click(object sender, EventArgs e)
