@@ -157,7 +157,6 @@
             label4.Size = new Size(175, 28);
             label4.TabIndex = 9;
             label4.Text = "Họ tên nhân viên";
-            label4.Click += label4_Click;
             // 
             // label6
             // 
@@ -222,7 +221,6 @@
             label1.Size = new Size(433, 54);
             label1.TabIndex = 5;
             label1.Text = "QUẢN LÝ NHÂN VIÊN";
-            label1.Click += label1_Click;
             // 
             // panel2
             // 
@@ -244,7 +242,7 @@
             btnLuuSua.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnLuuSua.Location = new Point(178, 127);
             btnLuuSua.Name = "btnLuuSua";
-            btnLuuSua.Size = new Size(105, 44);
+            btnLuuSua.Size = new Size(117, 44);
             btnLuuSua.TabIndex = 24;
             btnLuuSua.Text = "Lưu Sửa";
             btnLuuSua.UseVisualStyleBackColor = true;
@@ -256,7 +254,7 @@
             btnThoat.ImageAlign = ContentAlignment.MiddleLeft;
             btnThoat.Location = new Point(178, 205);
             btnThoat.Name = "btnThoat";
-            btnThoat.Size = new Size(105, 44);
+            btnThoat.Size = new Size(117, 44);
             btnThoat.TabIndex = 23;
             btnThoat.Text = "Thoát";
             btnThoat.TextAlign = ContentAlignment.MiddleRight;
@@ -267,13 +265,14 @@
             btnXoa.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnXoa.Image = (Image)resources.GetObject("btnXoa.Image");
             btnXoa.ImageAlign = ContentAlignment.MiddleLeft;
-            btnXoa.Location = new Point(23, 205);
+            btnXoa.Location = new Point(16, 205);
             btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(105, 44);
+            btnXoa.Size = new Size(122, 44);
             btnXoa.TabIndex = 22;
             btnXoa.Text = "Xóa";
             btnXoa.TextAlign = ContentAlignment.MiddleRight;
             btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnLuu
             // 
@@ -282,11 +281,12 @@
             btnLuu.ImageAlign = ContentAlignment.MiddleLeft;
             btnLuu.Location = new Point(16, 127);
             btnLuu.Name = "btnLuu";
-            btnLuu.Size = new Size(112, 44);
+            btnLuu.Size = new Size(122, 44);
             btnLuu.TabIndex = 21;
             btnLuu.Text = "Lưu";
             btnLuu.TextAlign = ContentAlignment.MiddleRight;
             btnLuu.UseVisualStyleBackColor = true;
+            btnLuu.Click += btnLuu_Click;
             // 
             // btnSua
             // 
@@ -295,7 +295,7 @@
             btnSua.ImageAlign = ContentAlignment.MiddleLeft;
             btnSua.Location = new Point(178, 57);
             btnSua.Name = "btnSua";
-            btnSua.Size = new Size(105, 44);
+            btnSua.Size = new Size(117, 44);
             btnSua.TabIndex = 20;
             btnSua.Text = "Sửa";
             btnSua.TextAlign = ContentAlignment.MiddleRight;
@@ -308,11 +308,12 @@
             btnThem.ImageAlign = ContentAlignment.MiddleLeft;
             btnThem.Location = new Point(16, 57);
             btnThem.Name = "btnThem";
-            btnThem.Size = new Size(112, 44);
+            btnThem.Size = new Size(122, 44);
             btnThem.TabIndex = 19;
             btnThem.Text = "Thêm";
             btnThem.TextAlign = ContentAlignment.MiddleRight;
             btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
             // 
             // label10
             // 
@@ -333,6 +334,7 @@
             dgvquanlynhanvien.RowTemplate.Height = 29;
             dgvquanlynhanvien.Size = new Size(1223, 199);
             dgvquanlynhanvien.TabIndex = 18;
+            dgvquanlynhanvien.CellContentClick += dgvquanlynhanvien_CellContentClick;
             // 
             // FormQuanLiNhanVien
             // 
@@ -345,7 +347,6 @@
             Controls.Add(label1);
             Name = "FormQuanLiNhanVien";
             Text = "QUẢN LÍ NHÂN VIÊN";
-            Load += FormQuanLiNhanVien_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
