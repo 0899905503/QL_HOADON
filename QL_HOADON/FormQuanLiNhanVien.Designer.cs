@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormQuanLiNhanVien));
             panel1 = new Panel();
+            cbbmaphong = new ComboBox();
+            label11 = new Label();
             label9 = new Label();
             txtHesochucvu = new TextBox();
             txtPhai = new TextBox();
@@ -63,6 +65,8 @@
             // panel1
             // 
             panel1.BackColor = Color.Fuchsia;
+            panel1.Controls.Add(cbbmaphong);
+            panel1.Controls.Add(label11);
             panel1.Controls.Add(label9);
             panel1.Controls.Add(txtHesochucvu);
             panel1.Controls.Add(txtPhai);
@@ -82,6 +86,24 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(857, 284);
             panel1.TabIndex = 1;
+            // 
+            // cbbmaphong
+            // 
+            cbbmaphong.FormattingEnabled = true;
+            cbbmaphong.Location = new Point(626, 227);
+            cbbmaphong.Name = "cbbmaphong";
+            cbbmaphong.Size = new Size(176, 28);
+            cbbmaphong.TabIndex = 28;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label11.Location = new Point(445, 223);
+            label11.Name = "label11";
+            label11.Size = new Size(108, 28);
+            label11.TabIndex = 18;
+            label11.Text = "Mã phòng";
             // 
             // label9
             // 
@@ -191,6 +213,7 @@
             txtManv.Name = "txtManv";
             txtManv.Size = new Size(176, 27);
             txtManv.TabIndex = 3;
+            txtManv.TextChanged += txtManv_TextChanged;
             // 
             // label3
             // 
@@ -313,7 +336,6 @@
             btnThem.Text = "Thêm";
             btnThem.TextAlign = ContentAlignment.MiddleRight;
             btnThem.UseVisualStyleBackColor = true;
-            btnThem.Click += btnThem_Click;
             // 
             // label10
             // 
@@ -384,5 +406,7 @@
         private Button btnThoat;
         private Button btnLuuSua;
         private DataGridView dgvquanlynhanvien;
+        private Label label11;
+        private ComboBox cbbmaphong;
     }
 }

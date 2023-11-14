@@ -17,6 +17,7 @@ namespace QL_HOANDON
         {
             InitializeComponent();
             LoadForm();
+            LoadDL_MaPhong();
         }
         private void LoadForm()
         {
@@ -50,14 +51,14 @@ namespace QL_HOANDON
                 var Ngaysinh = dgvquanlynhanvien.Rows[e.RowIndex].Cells[3].Value.ToString();
                 var Hsluong = dgvquanlynhanvien.Rows[e.RowIndex].Cells[4].Value.ToString();
                 var Hschucvu = dgvquanlynhanvien.Rows[e.RowIndex].Cells[5].Value.ToString();
-                var Maphongnv = dgvquanlynhanvien.Rows[e.RowIndex].Cells[6].Value.ToString();
+                var Maphong = dgvquanlynhanvien.Rows[e.RowIndex].Cells[6].Value.ToString();
                 txtManv.Text = Manv;
                 txtHotennv.Text = Hoten;
                 txtPhai.Text = Phai;
                 txtNgaysinh.Text = Ngaysinh;
                 txtHesoluong.Text = Hsluong;
                 txtHesochucvu.Text = Hschucvu;
-                txtMaphong.Text = Maphongnv;
+                cbbmaphong.Text = Maphong;
             }
         }
         private void dgvquanlynhanvien_SelectionChanged(object sender, EventArgs e)
@@ -72,22 +73,28 @@ namespace QL_HOANDON
                 var Ngaysinh = selectedRow.Cells[3].Value.ToString();
                 var Hsluong = selectedRow.Cells[4].Value.ToString();
                 var Hschucvu = selectedRow.Cells[5].Value.ToString();
-                var Maphongnv = selectedRow.Cells[6].Value.ToString();
+                var Maphong = selectedRow.Cells[6].Value.ToString();
                 txtManv.Text = Manv;
                 txtHotennv.Text = Hoten;
                 txtPhai.Text = Phai;
                 txtNgaysinh.Text = Ngaysinh;
                 txtHesoluong.Text = Hsluong;
                 txtHesochucvu.Text = Hschucvu;
-                txtMaphongnv.Text = Maphongnv;
+                cbbmaphong.Text = Maphong;
             }
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
+
+        private void LoadDL_MaPhong()
         {
-
+            string sql = "select MAPHONG from PHONGBAN";
+            SqlDataAdapter adapter = new SqlDataAdapter(sql, Database.SQLConnect);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            cbbmaphong.DataSource = dt;
+            cbbmaphong.DisplayMember = "MAPHONG";
+            cbbmaphong.ValueMember = "MAPHONG";
         }
-
         private void btnLuu_Click(object sender, EventArgs e)
         {
             var Manv = txtManv.Text;
@@ -96,7 +103,7 @@ namespace QL_HOANDON
             var Ngaysinh = txtNgaysinh.Text;
             var Hsluong = txtHesoluong.Text;
             var Hschucvu = txtHesochucvu.Text;
-            var Maphongnv = txtMaphongnv.Text;
+            var Maphong = cbbmaphong.Text;
             bool haveValue = false;
             foreach (DataGridViewRow row in dgvquanlynhanvien.Rows)
             {
@@ -119,7 +126,7 @@ namespace QL_HOANDON
                                         NGAYSINH = @NGAYSINH
                                         HSLUONG = @HSLUONG
                                         HSCHUCVU = @HSCHUCVU
-                                        MAPHONGNV = @MAPHONG
+                                        Maphong = @MAPHONG
                                         WHERE MANV = @MANV";
                     sqlCommand.CommandText = queryString;
                     sqlCommand.Parameters.AddWithValue("@MANV", Manv);
@@ -128,7 +135,7 @@ namespace QL_HOANDON
                     sqlCommand.Parameters.AddWithValue("@NGAYSINH", Ngaysinh);
                     sqlCommand.Parameters.AddWithValue("@HSLUONG", Hsluong);
                     sqlCommand.Parameters.AddWithValue("@HSCHUCVU", Hschucvu);
-                    sqlCommand.Parameters.AddWithValue("@MAPHONG", Maphongnv);
+                    sqlCommand.Parameters.AddWithValue("@MAPHONG", Maphong);
                     sqlCommand.ExecuteNonQuery();
                     MessageBox.Show("Đã cập nhật thông tin nhân viên " + Manv);
                 }
@@ -143,7 +150,7 @@ namespace QL_HOANDON
                     sqlCommand.Parameters.AddWithValue("@NGAYSINH", Ngaysinh);
                     sqlCommand.Parameters.AddWithValue("@HSLUONG", Hsluong);
                     sqlCommand.Parameters.AddWithValue("@HSCHUCVU", Hschucvu);
-                    sqlCommand.Parameters.AddWithValue("@MAPHONG", Maphongnv);
+                    sqlCommand.Parameters.AddWithValue("@MAPHONG", Maphong);
                     sqlCommand.ExecuteNonQuery();
                     MessageBox.Show("Đã lưu mới thông tin nhân viên " + Manv);
                 }
@@ -190,6 +197,11 @@ namespace QL_HOANDON
                 }
             }
             MessageBox.Show("Đã xóa " + rowsDeleted + " nhân viên");
+        }
+
+        private void txtManv_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
