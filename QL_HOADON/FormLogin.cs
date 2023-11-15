@@ -17,6 +17,7 @@ namespace QL_HOANDON
         public FormLogin()
         {
             InitializeComponent();
+            this.AcceptButton = btnDangnhap;
         }
         public void Login(object sender, EventArgs e)
         {
