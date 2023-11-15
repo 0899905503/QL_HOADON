@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormQLHanghoa));
             panel1 = new Panel();
             textBox3 = new TextBox();
-            dateTimePicker2 = new DateTimePicker();
+            dateTimePicker1 = new DateTimePicker();
             textBox2 = new TextBox();
             textBox1 = new TextBox();
             label3 = new Label();
@@ -54,7 +54,7 @@
             // 
             panel1.BackColor = Color.DarkOrange;
             panel1.Controls.Add(textBox3);
-            panel1.Controls.Add(dateTimePicker2);
+            panel1.Controls.Add(dateTimePicker1);
             panel1.Controls.Add(textBox2);
             panel1.Controls.Add(textBox1);
             panel1.Controls.Add(label3);
@@ -75,10 +75,10 @@
             // 
             // dateTimePicker2
             // 
-            dateTimePicker2.Location = new Point(185, 105);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(196, 27);
-            dateTimePicker2.TabIndex = 7;
+            dateTimePicker1.Location = new Point(185, 105);
+            dateTimePicker1.Name = "dateTimePicker2";
+            dateTimePicker1.Size = new Size(196, 27);
+            dateTimePicker1.TabIndex = 7;
             // 
             // textBox2
             // 
@@ -250,7 +250,7 @@
 
         private Panel panel1;
         private TextBox textBox3;
-        private DateTimePicker dateTimePicker2;
+        private DateTimePicker dateTimePicker1;
         private TextBox textBox2;
         private TextBox textBox1;
         private Label label3;
