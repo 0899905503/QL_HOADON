@@ -131,5 +131,5 @@ VALUES
         ('HD008', 'SM0044', 30);
 
 INSERT INTO TAIKHOAN (USER_NAME, PASSWORD, NAME, PERMISSON)
-VALUES  ('admin', 'admin', 'Đấng toàn năng', 'ADMIN'),
-        ('user', 'user', 'Người dùng', 'USER');
+VALUES  ('admin', 'admin', N'Đấng toàn năng', 'ADMIN'),
+        ('user', 'user', N'Người dùng', 'USER');
