@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormQLHanghoa));
             panel1 = new Panel();
-            label1 = new Label();
-            label2 = new Label();
+            textBox3 = new TextBox();
+            dateTimePicker1 = new DateTimePicker();
+            textBox2 = new TextBox();
+            textBox1 = new TextBox();
             label3 = new Label();
             label4 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            dateTimePicker1 = new DateTimePicker();
-            textBox3 = new TextBox();
+            label1 = new Label();
+            label2 = new Label();
             dataGridView1 = new DataGridView();
             c = new Panel();
             btnThoat = new Button();
@@ -66,25 +66,33 @@
             panel1.Size = new Size(889, 150);
             panel1.TabIndex = 0;
             // 
-            // label1
+            // textBox3
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(53, 29);
-            label1.Name = "label1";
-            label1.Size = new Size(77, 22);
-            label1.TabIndex = 1;
-            label1.Text = "Mã hàng";
+            textBox3.Location = new Point(618, 103);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(210, 27);
+            textBox3.TabIndex = 8;
             // 
-            // label2
+            // dateTimePicker1
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(53, 105);
-            label2.Name = "label2";
-            label2.Size = new Size(129, 22);
-            label2.TabIndex = 2;
-            label2.Text = " Ngày  sản xuất";
+            dateTimePicker1.Location = new Point(185, 105);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(196, 27);
+            dateTimePicker1.TabIndex = 7;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(618, 26);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(214, 27);
+            textBox2.TabIndex = 6;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(185, 27);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(189, 27);
+            textBox1.TabIndex = 5;
             // 
             // label3
             // 
@@ -106,33 +114,25 @@
             label4.TabIndex = 4;
             label4.Text = "Tên hàng";
             // 
-            // textBox1
+            // label1
             // 
-            textBox1.Location = new Point(185, 27);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(189, 27);
-            textBox1.TabIndex = 5;
+            label1.AutoSize = true;
+            label1.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(53, 29);
+            label1.Name = "label1";
+            label1.Size = new Size(77, 22);
+            label1.TabIndex = 1;
+            label1.Text = "Mã hàng";
             // 
-            // textBox2
+            // label2
             // 
-            textBox2.Location = new Point(618, 26);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(214, 27);
-            textBox2.TabIndex = 6;
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new Point(185, 105);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(196, 27);
-            dateTimePicker1.TabIndex = 7;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(618, 103);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(210, 27);
-            textBox3.TabIndex = 8;
+            label2.AutoSize = true;
+            label2.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(53, 105);
+            label2.Name = "label2";
+            label2.Size = new Size(129, 22);
+            label2.TabIndex = 2;
+            label2.Text = " Ngày  sản xuất";
             // 
             // dataGridView1
             // 
@@ -143,6 +143,8 @@
             dataGridView1.RowTemplate.Height = 29;
             dataGridView1.Size = new Size(889, 188);
             dataGridView1.TabIndex = 1;
+            dataGridView1.CellClick += dataGridView1_CellClick;
+            dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
             // 
             // c
             // 
@@ -169,6 +171,7 @@
             btnThoat.Text = "Thoát";
             btnThoat.TextAlign = ContentAlignment.MiddleRight;
             btnThoat.UseVisualStyleBackColor = true;
+            btnThoat.Click += btnThoat_Click;
             // 
             // btnXoa
             // 
@@ -182,6 +185,7 @@
             btnXoa.Text = "Xóa";
             btnXoa.TextAlign = ContentAlignment.MiddleRight;
             btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnLuu
             // 
@@ -195,6 +199,7 @@
             btnLuu.Text = "Lưu";
             btnLuu.TextAlign = ContentAlignment.MiddleRight;
             btnLuu.UseVisualStyleBackColor = true;
+            btnLuu.Click += btnLuu_Click;
             // 
             // btnSua
             // 
@@ -208,6 +213,7 @@
             btnSua.Text = "Sửa";
             btnSua.TextAlign = ContentAlignment.MiddleRight;
             btnSua.UseVisualStyleBackColor = true;
+            btnSua.Click += btnSua_Click;
             // 
             // btnThem
             // 
@@ -221,6 +227,7 @@
             btnThem.Text = "Thêm";
             btnThem.TextAlign = ContentAlignment.MiddleRight;
             btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
             // 
             // FormQLHanghoa
             // 
