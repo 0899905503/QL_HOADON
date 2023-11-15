@@ -16,9 +16,10 @@ namespace QL_HOANDON
         {
             InitializeComponent();
         }
-
-        private void label7_Click(object sender, EventArgs e)
+        public void Login(object sender, EventArgs e)
         {
+            var username = txtTendangnhap.Text;
+            var password = txtPass.Text;
 
         }
     }

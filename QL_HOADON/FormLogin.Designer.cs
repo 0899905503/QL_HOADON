@@ -98,7 +98,6 @@
             label7.Size = new Size(351, 38);
             label7.TabIndex = 31;
             label7.Text = "THÔNG TIN ĐĂNG NHẬP";
-            label7.Click += label7_Click;
             // 
             // btnDangnhap
             // 
@@ -109,6 +108,7 @@
             btnDangnhap.TabIndex = 1;
             btnDangnhap.Text = "Đăng nhập";
             btnDangnhap.UseVisualStyleBackColor = true;
+            btnDangnhap.Click += Login;
             // 
             // btnThoat
             // 

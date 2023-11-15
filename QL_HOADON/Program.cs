@@ -1,3 +1,5 @@
+using QL_HOANDON;
+
 namespace QL_HOADON
 {
     internal static class Program
