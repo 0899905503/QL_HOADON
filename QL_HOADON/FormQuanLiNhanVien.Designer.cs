@@ -6,7 +6,6 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
@@ -43,7 +42,6 @@
             label4 = new Label();
             label6 = new Label();
             label5 = new Label();
-            txtNgaysinh = new TextBox();
             txtManv = new TextBox();
             label3 = new Label();
             label2 = new Label();
@@ -56,15 +54,17 @@
             btnSua = new Button();
             btnThem = new Button();
             label10 = new Label();
-            dgvquanlynhanvien = new DataGridView();
+            dgvquanlinhanvien = new DataGridView();
+            dateTimePicker1 = new DateTimePicker();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvquanlynhanvien).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvquanlinhanvien).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.Fuchsia;
+            panel1.Controls.Add(dateTimePicker1);
             panel1.Controls.Add(cbbmaphong);
             panel1.Controls.Add(label11);
             panel1.Controls.Add(label9);
@@ -78,7 +78,6 @@
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(label5);
-            panel1.Controls.Add(txtNgaysinh);
             panel1.Controls.Add(txtManv);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
@@ -94,6 +93,7 @@
             cbbmaphong.Name = "cbbmaphong";
             cbbmaphong.Size = new Size(176, 28);
             cbbmaphong.TabIndex = 28;
+            cbbmaphong.SelectedIndexChanged += cbbmaphong_SelectedIndexChanged;
             // 
             // label11
             // 
@@ -200,13 +200,6 @@
             label5.TabIndex = 7;
             label5.Text = "Hệ số lương";
             // 
-            // txtNgaysinh
-            // 
-            txtNgaysinh.Location = new Point(212, 111);
-            txtNgaysinh.Name = "txtNgaysinh";
-            txtNgaysinh.Size = new Size(176, 27);
-            txtNgaysinh.TabIndex = 4;
-            // 
             // txtManv
             // 
             txtManv.Location = new Point(212, 58);
@@ -269,6 +262,7 @@
             btnLuuSua.TabIndex = 24;
             btnLuuSua.Text = "Lưu Sửa";
             btnLuuSua.UseVisualStyleBackColor = true;
+            btnLuuSua.Click += btnLuuSua_Click;
             // 
             // btnThoat
             // 
@@ -282,6 +276,7 @@
             btnThoat.Text = "Thoát";
             btnThoat.TextAlign = ContentAlignment.MiddleRight;
             btnThoat.UseVisualStyleBackColor = true;
+            btnThoat.Click += btnThoat_Click;
             // 
             // btnXoa
             // 
@@ -323,6 +318,7 @@
             btnSua.Text = "Sửa";
             btnSua.TextAlign = ContentAlignment.MiddleRight;
             btnSua.UseVisualStyleBackColor = true;
+            btnSua.Click += btnSua_Click;
             // 
             // btnThem
             // 
@@ -336,6 +332,7 @@
             btnThem.Text = "Thêm";
             btnThem.TextAlign = ContentAlignment.MiddleRight;
             btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
             // 
             // label10
             // 
@@ -347,23 +344,31 @@
             label10.TabIndex = 18;
             label10.Text = "ĐIỀU KHIỂN";
             // 
-            // dgvquanlynhanvien
+            // dgvquanlinhanvien
             // 
-            dgvquanlynhanvien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvquanlynhanvien.Location = new Point(12, 370);
-            dgvquanlynhanvien.Name = "dgvquanlynhanvien";
-            dgvquanlynhanvien.RowHeadersWidth = 51;
-            dgvquanlynhanvien.RowTemplate.Height = 29;
-            dgvquanlynhanvien.Size = new Size(1223, 199);
-            dgvquanlynhanvien.TabIndex = 18;
-            dgvquanlynhanvien.CellContentClick += dgvquanlynhanvien_CellContentClick;
+            dgvquanlinhanvien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvquanlinhanvien.Location = new Point(12, 370);
+            dgvquanlinhanvien.Name = "dgvquanlinhanvien";
+            dgvquanlinhanvien.RowHeadersWidth = 51;
+            dgvquanlinhanvien.RowTemplate.Height = 29;
+            dgvquanlinhanvien.Size = new Size(1223, 199);
+            dgvquanlinhanvien.TabIndex = 18;
+            dgvquanlinhanvien.CellContentClick += dgvquanlynhanvien_CellContentClick;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(212, 111);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(176, 27);
+            dateTimePicker1.TabIndex = 29;
+            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
             // 
             // FormQuanLiNhanVien
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1262, 581);
-            Controls.Add(dgvquanlynhanvien);
+            Controls.Add(dgvquanlinhanvien);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(label1);
@@ -373,15 +378,14 @@
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvquanlynhanvien).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvquanlinhanvien).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
+        private DateTimePicker dateTimePicker1;
         private Panel panel1;
-        private TextBox txtNgaysinh;
         private TextBox txtManv;
         private Label label3;
         private Label label2;
@@ -405,8 +409,9 @@
         private Button btnXoa;
         private Button btnThoat;
         private Button btnLuuSua;
-        private DataGridView dgvquanlynhanvien;
+        private DataGridView dgvquanlinhanvien;
         private Label label11;
         private ComboBox cbbmaphong;
+        private ComboBox cbbngaysinh;
     }
 }

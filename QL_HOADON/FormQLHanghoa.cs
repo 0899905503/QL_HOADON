@@ -201,9 +201,9 @@ namespace QL_HOANDON
             {
                 Database.SQLConnect.Close();
                 LoadForm();
-           }
+            }
 
-        } 
+        }
 
     }
 }

@@ -1,5 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace QL_HOANDON
 {
@@ -28,7 +29,7 @@ namespace QL_HOANDON
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(queryString, Database.SQLConnect);
                 DataTable table = new DataTable();
                 sqlDataAdapter.Fill(table);
-                dgvquanlynhanvien.DataSource = table;
+                dgvquanlinhanvien.DataSource = table;
             }
             catch (Exception ex)
             {
@@ -45,28 +46,29 @@ namespace QL_HOANDON
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 // Get the value from the clicked cell
-                var Manv = dgvquanlynhanvien.Rows[e.RowIndex].Cells[0].Value.ToString();
-                var Hoten = dgvquanlynhanvien.Rows[e.RowIndex].Cells[1].Value.ToString();
-                var Phai = dgvquanlynhanvien.Rows[e.RowIndex].Cells[2].Value.ToString();
-                var Ngaysinh = dgvquanlynhanvien.Rows[e.RowIndex].Cells[3].Value.ToString();
-                var Hsluong = dgvquanlynhanvien.Rows[e.RowIndex].Cells[4].Value.ToString();
-                var Hschucvu = dgvquanlynhanvien.Rows[e.RowIndex].Cells[5].Value.ToString();
-                var Maphong = dgvquanlynhanvien.Rows[e.RowIndex].Cells[6].Value.ToString();
+                var Manv = dgvquanlinhanvien.Rows[e.RowIndex].Cells[0].Value.ToString();
+                var Hoten = dgvquanlinhanvien.Rows[e.RowIndex].Cells[1].Value.ToString();
+                var Phai = dgvquanlinhanvien.Rows[e.RowIndex].Cells[2].Value.ToString();
+                var Ngaysinh = dgvquanlinhanvien.Rows[e.RowIndex].Cells[3].Value.ToString();
+                var Hsluong = dgvquanlinhanvien.Rows[e.RowIndex].Cells[4].Value.ToString();
+                var Hschucvu = dgvquanlinhanvien.Rows[e.RowIndex].Cells[5].Value.ToString();
+                var Maphong = dgvquanlinhanvien.Rows[e.RowIndex].Cells[6].Value.ToString();
                 txtManv.Text = Manv;
                 txtHotennv.Text = Hoten;
                 txtPhai.Text = Phai;
-                txtNgaysinh.Text = Ngaysinh;
+                cbbngaysinh.Text = Ngaysinh;
                 txtHesoluong.Text = Hsluong;
                 txtHesochucvu.Text = Hschucvu;
                 cbbmaphong.Text = Maphong;
+                dateTimePicker1.Text = Ngaysinh;
             }
         }
         private void dgvquanlynhanvien_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgvquanlynhanvien.SelectedRows.Count > 0)
+            if (dgvquanlinhanvien.SelectedRows.Count > 0)
             {
-                DataGridViewRow selectedRow = dgvquanlynhanvien.SelectedRows[0];
-                if (dgvquanlynhanvien.SelectedRows.Count == dgvquanlynhanvien.Rows.Count) return;
+                DataGridViewRow selectedRow = dgvquanlinhanvien.SelectedRows[0];
+                if (dgvquanlinhanvien.SelectedRows.Count == dgvquanlinhanvien.Rows.Count) return;
                 var Manv = selectedRow.Cells[0].Value.ToString();
                 var Hoten = selectedRow.Cells[1].Value.ToString();
                 var Phai = selectedRow.Cells[2].Value.ToString();
@@ -77,10 +79,11 @@ namespace QL_HOANDON
                 txtManv.Text = Manv;
                 txtHotennv.Text = Hoten;
                 txtPhai.Text = Phai;
-                txtNgaysinh.Text = Ngaysinh;
+                cbbngaysinh.Text = Ngaysinh;
                 txtHesoluong.Text = Hsluong;
                 txtHesochucvu.Text = Hschucvu;
                 cbbmaphong.Text = Maphong;
+                dateTimePicker1.Text = Ngaysinh;
             }
         }
 
@@ -100,12 +103,12 @@ namespace QL_HOANDON
             var Manv = txtManv.Text;
             var Hoten = txtHotennv.Text;
             var Phai = txtPhai.Text;
-            var Ngaysinh = txtNgaysinh.Text;
+            var Ngaysinh = dateTimePicker1.Text;
             var Hsluong = txtHesoluong.Text;
             var Hschucvu = txtHesochucvu.Text;
             var Maphong = cbbmaphong.Text;
             bool haveValue = false;
-            foreach (DataGridViewRow row in dgvquanlynhanvien.Rows)
+            foreach (DataGridViewRow row in dgvquanlinhanvien.Rows)
             {
                 if (row.Cells[0].Value?.ToString() == Manv)
                 {
@@ -169,7 +172,7 @@ namespace QL_HOANDON
         private void btnXoa_Click(object sender, EventArgs e)
         {
             var rowsDeleted = 0;
-            foreach (DataGridViewRow row in dgvquanlynhanvien.SelectedRows)
+            foreach (DataGridViewRow row in dgvquanlinhanvien.SelectedRows)
             {
                 var Manv = row.Cells[0]?.Value.ToString();
                 if (!string.IsNullOrEmpty(Manv))
@@ -200,6 +203,154 @@ namespace QL_HOANDON
         }
 
         private void txtManv_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbbngaysinh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbbmaphong_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            txtManv.Enabled = true;
+            txtHotennv.Enabled = true;
+            txtHesoluong.Enabled = true;
+            txtHesochucvu.Enabled = true;
+            txtPhai.Enabled = true;
+            txtTienluong.Enabled = true;
+            cbbmaphong.Enabled = true;
+            dateTimePicker1.Enabled = true;
+            txtManv.ResetText();
+            txtHotennv.ResetText();
+            txtHesoluong.ResetText();
+            txtHesochucvu.ResetText();
+            txtPhai.ResetText();
+            txtTienluong.ResetText();
+            cbbmaphong.ResetText();
+            dateTimePicker1.ResetText();
+            txtManv.Focus();
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            DialogResult Traloi;
+            Traloi = MessageBox.Show("Bạn có chắc thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (Traloi == DialogResult.Yes)
+                this.Close();
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Database.SQLConnect.Open();
+                SqlCommand sqlCommand = new SqlCommand();
+                sqlCommand.Connection = Database.SQLConnect;
+                string queryString = @"UPDATE NHANVIEN SET Hoten = @Hoten,
+                                        Phai = @Phai,Ngaysinh = @Ngaysinh,
+                                   Hesoluong = @Hesoluong, Tienluong = @Tienluong,
+                                               Hesoluong = @Hesoluong,WHERE Manv = @Manv";
+                sqlCommand.CommandText = queryString;
+                sqlCommand.Parameters.Add("@Manv", SqlDbType.NVarChar).Value = txtManv.Text;
+                sqlCommand.Parameters.Add("@Hoten", SqlDbType.NVarChar).Value = txtHotennv.Text;
+                sqlCommand.Parameters.Add("@Phai", SqlDbType.Float).Value = txtPhai.Text;
+                sqlCommand.Parameters.Add("@Ngaysinh", SqlDbType.Date).Value = dateTimePicker1.Text;
+                sqlCommand.Parameters.Add("@Hesoluong", SqlDbType.Float).Value = txtHesoluong.Text;
+                sqlCommand.Parameters.Add("@Tienluong", SqlDbType.Float).Value = txtTienluong.Text;
+                sqlCommand.Parameters.Add("@Hesochucvu", SqlDbType.Float).Value = txtHesochucvu.Text;
+                sqlCommand.Parameters.Add("@", SqlDbType.Float).Value = txtPhai.Text;
+                sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Có lỗi: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Database.SQLConnect.Close();
+                LoadForm();
+            }
+        }
+
+        private void btnLuuSua_Click(object sender, EventArgs e)
+        {
+            var Manv = txtManv.Text;
+            var Hoten = txtHotennv.Text;
+            var Phai = txtPhai.Text;
+            var Ngaysinh = dateTimePicker1.Text;
+            var Hsluong = txtHesoluong.Text;
+            var Hschucvu = txtHesochucvu.Text;
+            var Maphong = cbbmaphong.Text;
+            bool haveValue = false;
+            foreach (DataGridViewRow row in dgvquanlinhanvien.Rows)
+            {
+                if (row.Cells[0].Value?.ToString() == Manv)
+                {
+                    haveValue = true;
+                    break;
+                }
+            }
+            try
+            {
+                Database.SQLConnect.Open();
+                SqlCommand sqlCommand = new SqlCommand();
+                sqlCommand.Connection = Database.SQLConnect;
+                if (haveValue == true)
+                {
+                    string queryString = @"UPDATE NHANVIEN
+                                        SET HOTEN = @HOTEN,
+                                        PHAI = @PHAI, 
+                                        NGAYSINH = @NGAYSINH
+                                        HSLUONG = @HSLUONG
+                                        HSCHUCVU = @HSCHUCVU
+                                        Maphong = @MAPHONG
+                                        WHERE MANV = @MANV";
+                    sqlCommand.CommandText = queryString;
+                    sqlCommand.Parameters.AddWithValue("@MANV", Manv);
+                    sqlCommand.Parameters.AddWithValue("@HOTEN", Hoten);
+                    sqlCommand.Parameters.AddWithValue("@PHAI", Phai);
+                    sqlCommand.Parameters.AddWithValue("@NGAYSINH", Ngaysinh);
+                    sqlCommand.Parameters.AddWithValue("@HSLUONG", Hsluong);
+                    sqlCommand.Parameters.AddWithValue("@HSCHUCVU", Hschucvu);
+                    sqlCommand.Parameters.AddWithValue("@MAPHONG", Maphong);
+                    sqlCommand.ExecuteNonQuery();
+                    MessageBox.Show("Đã cập nhật thông tin nhân viên " + Manv);
+                }
+                else
+                {
+                    string queryString = @"INSERT INTO NHANVIEN
+                                        VALUES (@MANV,@HOTEN,@PHAI,@NGAYSINH,@HSLUONG,@HSCHUCVU,@MAPHONG)";
+                    sqlCommand.CommandText = queryString;
+                    sqlCommand.Parameters.AddWithValue("@MANV", Manv);
+                    sqlCommand.Parameters.AddWithValue("@HOTEN", Hoten);
+                    sqlCommand.Parameters.AddWithValue("@PHAI", Phai);
+                    sqlCommand.Parameters.AddWithValue("@NGAYSINH", Ngaysinh);
+                    sqlCommand.Parameters.AddWithValue("@HSLUONG", Hsluong);
+                    sqlCommand.Parameters.AddWithValue("@HSCHUCVU", Hschucvu);
+                    sqlCommand.Parameters.AddWithValue("@MAPHONG", Maphong);
+                    sqlCommand.ExecuteNonQuery();
+                    MessageBox.Show("Đã lưu mới thông tin nhân viên " + Manv);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Có lỗi: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Database.SQLConnect.Close();
+                LoadForm();
+            }
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
         }
