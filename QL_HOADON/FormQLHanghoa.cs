@@ -22,7 +22,7 @@ namespace QL_HOANDON
         {
             try
             {
-                string queryString = "SELECT * FROM HANGHOA";
+                string queryString  = "SELECT * FROM HANGHOA";
                 Database.SQLConnect.Open();
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(queryString, Database.SQLConnect);
                 DataTable table = new DataTable();

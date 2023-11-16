@@ -43,9 +43,9 @@ namespace QL_HOANDON
 
         private void dgvquanlynhanvien_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            if (e.RowIndex >= 0)
             {
-                // Get the value from the clicked cell
+
                 var Manv = dgvquanlinhanvien.Rows[e.RowIndex].Cells[0].Value.ToString();
                 var Hoten = dgvquanlinhanvien.Rows[e.RowIndex].Cells[1].Value.ToString();
                 var Phai = dgvquanlinhanvien.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -61,6 +61,62 @@ namespace QL_HOANDON
                 txtHesochucvu.Text = Hschucvu;
                 cbbmaphong.Text = Maphong;
                 dateTimePicker1.Text = Ngaysinh;
+            }
+            try
+            {
+                //if (dgvquanlinhanvien.SelectedRows.Count > 0)
+                //{
+                //    // Lấy dòng được chọn
+                //    DataGridViewRow selectedRow = dgvquanlinhanvien.SelectedRows[0];
+
+                //    DataGridViewRow row = this.dgvquanlinhanvien.Rows[e.RowIndex];
+                //    // Get the value from the clicked cell
+                //    txtManv.Text = row.Cells["manv"].Value.ToString();
+                //    txtHotennv.Text = row.Cells["hoten"].Value.ToString();
+                //    cbbPhai.Text = row.Cells["phai"].Value.ToString();
+                //    txtHesoluong.Text = row.Cells["hsluong"].Value.ToString();
+                //    txtHesochucvu.Text = row.Cells["hschucvu"].Value.ToString();
+                //    dateTimePicker1.Text = row.Cells["ngaysinh"].Value.ToString();
+                //    cbbmaphong.Text = row.Cells["maphong"].Value.ToString();
+                //    //string cellManv = selectedRow.Cells["manv"].Value.ToString();
+                //    //string cellHoten = selectedRow.Cells["hoten"].Value.ToString();
+                //    //string cellPhai = selectedRow.Cells["phai"].Value.ToString();
+                //    //string cellNgaysinh = selectedRow.Cells["ngaysinh"].Value.ToString();
+                //    //string cellHsluong = selectedRow.Cells["hsluong"].Value.ToString();
+                //    //string cellHschucvu = selectedRow.Cells["hschucvu"].Value.ToString();
+                //    //string cellMaphong = selectedRow.Cells["maphong"].Value.ToString();
+                //    // Hiển thị giá trị trong TextBox
+                //    txtManv.Text = cellManv;
+                //    txtHotennv.Text = cellHoten;
+                //    cbbPhai.Text = cellPhai;
+                //    dateTimePicker1.Text = cellNgaysinh;
+                //    txtHesoluong.Text = cellHsluong;
+                //    txtHesochucvu.Text = cellHschucvu;
+                //    cbbmaphong.Text = cellMaphong;
+                //}
+                if (e.RowIndex >= 0)
+                {
+                    DataGridViewRow selectedRow = dgvquanlinhanvien.Rows[e.RowIndex];
+
+                    txtManv.Text = selectedRow.Cells["MANV"].Value.ToString();
+                    txtHotennv.Text = selectedRow.Cells["HOTEN"].Value.ToString();
+                    dateTimePicker1.Text = selectedRow.Cells["NGAYSINH"].Value.ToString();
+                    cbbPhai.Text = selectedRow.Cells["PHAI"].Value.ToString();
+                    txtHesoluong.Text = selectedRow.Cells["HSLUONG"].Value.ToString();
+                    txtHesochucvu.Text = selectedRow.Cells["HSCHUCVU"].Value.ToString();
+                    txtTienluong.Text = selectedRow.Cells["TIENLUONG"].Value.ToString();
+                    cbbmaphong.Text = selectedRow.Cells["MAPHONG"].Value.ToString();
+                }
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("");
+            }
+            finally
+            {
+                Database.SQLConnect.Close();
+                LoadForm();
             }
         }
         private void dgvquanlynhanvien_SelectionChanged(object sender, EventArgs e)
@@ -84,28 +140,6 @@ namespace QL_HOANDON
                 txtHesochucvu.Text = Hschucvu;
                 cbbmaphong.Text = Maphong;
                 dateTimePicker1.Text = Ngaysinh;
-            }
-            if (dgvquanlinhanvien.SelectedRows.Count > 0)
-            {
-                // Lấy dòng được chọn
-                DataGridViewRow selectedRow = dgvquanlinhanvien.SelectedRows[0];
-
-                // Lấy giá trị từ cột mong muốn (ở đây là cột có tên "TenCot")
-                string cellManv = selectedRow.Cells["manv"].Value.ToString();
-                string cellHoten = selectedRow.Cells["hoten"].Value.ToString();
-                string cellPhai = selectedRow.Cells["phai"].Value.ToString();
-                string cellNgaysinh = selectedRow.Cells["ngaysinh"].Value.ToString();
-                string cellHsluong = selectedRow.Cells["hsluong"].Value.ToString();
-                string cellHschucvu = selectedRow.Cells["hschucvu"].Value.ToString();
-                string cellMaphong = selectedRow.Cells["maphong"].Value.ToString();
-                // Hiển thị giá trị trong TextBox
-                txtManv.Text = cellManv;
-                txtHotennv.Text = cellHoten;
-                cbbPhai.Text = cellPhai;
-                dateTimePicker1.Text = cellNgaysinh;
-                txtHesoluong.Text = cellHsluong;
-                txtHesochucvu.Text = cellHschucvu;
-                cbbmaphong.Text = cellMaphong;
             }
         }
 
@@ -376,6 +410,39 @@ namespace QL_HOANDON
         {
 
         }
+
+        //private void dgvquanlinhanvien_CellClick(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (dgvquanlinhanvien.SelectedRows.Count > 0)
+        //        {
+        //            // Lấy dòng được chọn
+        //            DataGridViewRow selectedRow = dgvquanlinhanvien.SelectedRows[0];
+
+        //            // Lấy giá trị từ cột mong muốn (ở đây là cột có tên "TenCot")
+        //            string cellManv = selectedRow.Cells["manv"].Value.ToString();
+        //            string cellHoten = selectedRow.Cells["hoten"].Value.ToString();
+        //            string cellPhai = selectedRow.Cells["phai"].Value.ToString();
+        //            string cellNgaysinh = selectedRow.Cells["ngaysinh"].Value.ToString();
+        //            string cellHsluong = selectedRow.Cells["hsluong"].Value.ToString();
+        //            string cellHschucvu = selectedRow.Cells["hschucvu"].Value.ToString();
+        //            string cellMaphong = selectedRow.Cells["maphong"].Value.ToString();
+        //            // Hiển thị giá trị trong TextBox
+        //            txtManv.Text = cellManv;
+        //            txtHotennv.Text = cellHoten;
+        //            cbbPhai.Text = cellPhai;
+        //            dateTimePicker1.Text = cellNgaysinh;
+        //            txtHesoluong.Text = cellHsluong;
+        //            txtHesochucvu.Text = cellHschucvu;
+        //            cbbmaphong.Text = cellMaphong;
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
+        //        MessageBox.Show("Chọn dòng để hiển thị");
+        //    }
+        //}
 
         //private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         //{
