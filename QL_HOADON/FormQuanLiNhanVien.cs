@@ -24,7 +24,7 @@ namespace QL_HOANDON
         {
             try
             {
-                string queryString = "SELECT * FROM NHANVIEN";
+                string queryString = "SELECT MANV, HOTEN, CASE WHEN PHAI = 1 THEN N'nam' ELSE N'nữ' END AS PHAI, NGAYSINH, HSLUONG, HSCHUCVU, MAPHONG FROM NHANVIEN";
                 Database.SQLConnect.Open();
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(queryString, Database.SQLConnect);
                 DataTable table = new DataTable();
@@ -55,7 +55,7 @@ namespace QL_HOANDON
                 var Maphong = dgvquanlinhanvien.Rows[e.RowIndex].Cells[6].Value.ToString();
                 txtManv.Text = Manv;
                 txtHotennv.Text = Hoten;
-                txtPhai.Text = Phai;
+                cbbPhai.Text = Phai;
                 cbbngaysinh.Text = Ngaysinh;
                 txtHesoluong.Text = Hsluong;
                 txtHesochucvu.Text = Hschucvu;
@@ -78,7 +78,7 @@ namespace QL_HOANDON
                 var Maphong = selectedRow.Cells[6].Value.ToString();
                 txtManv.Text = Manv;
                 txtHotennv.Text = Hoten;
-                txtPhai.Text = Phai;
+                cbbPhai.Text = Phai;
                 cbbngaysinh.Text = Ngaysinh;
                 txtHesoluong.Text = Hsluong;
                 txtHesochucvu.Text = Hschucvu;
@@ -102,7 +102,7 @@ namespace QL_HOANDON
         {
             var Manv = txtManv.Text;
             var Hoten = txtHotennv.Text;
-            var Phai = txtPhai.Text;
+            var Phai = cbbPhai.Text;
             var Ngaysinh = dateTimePicker1.Text;
             var Hsluong = txtHesoluong.Text;
             var Hschucvu = txtHesochucvu.Text;
@@ -126,9 +126,9 @@ namespace QL_HOANDON
                     string queryString = @"UPDATE NHANVIEN
                                         SET HOTEN = @HOTEN,
                                         PHAI = @PHAI, 
-                                        NGAYSINH = @NGAYSINH
-                                        HSLUONG = @HSLUONG
-                                        HSCHUCVU = @HSCHUCVU
+                                        NGAYSINH = @NGAYSINH,
+                                        HSLUONG = @HSLUONG,
+                                        HSCHUCVU = @HSCHUCVU,
                                         Maphong = @MAPHONG
                                         WHERE MANV = @MANV";
                     sqlCommand.CommandText = queryString;
@@ -223,7 +223,7 @@ namespace QL_HOANDON
             txtHotennv.Enabled = true;
             txtHesoluong.Enabled = true;
             txtHesochucvu.Enabled = true;
-            txtPhai.Enabled = true;
+            cbbPhai.Enabled = true;
             txtTienluong.Enabled = true;
             cbbmaphong.Enabled = true;
             dateTimePicker1.Enabled = true;
@@ -231,7 +231,7 @@ namespace QL_HOANDON
             txtHotennv.ResetText();
             txtHesoluong.ResetText();
             txtHesochucvu.ResetText();
-            txtPhai.ResetText();
+            cbbPhai.ResetText();
             txtTienluong.ResetText();
             cbbmaphong.ResetText();
             dateTimePicker1.ResetText();
@@ -260,12 +260,12 @@ namespace QL_HOANDON
                 sqlCommand.CommandText = queryString;
                 sqlCommand.Parameters.Add("@Manv", SqlDbType.NVarChar).Value = txtManv.Text;
                 sqlCommand.Parameters.Add("@Hoten", SqlDbType.NVarChar).Value = txtHotennv.Text;
-                sqlCommand.Parameters.Add("@Phai", SqlDbType.Float).Value = txtPhai.Text;
+                sqlCommand.Parameters.Add("@Phai", SqlDbType.Float).Value = cbbPhai.Text;
                 sqlCommand.Parameters.Add("@Ngaysinh", SqlDbType.Date).Value = dateTimePicker1.Text;
                 sqlCommand.Parameters.Add("@Hesoluong", SqlDbType.Float).Value = txtHesoluong.Text;
                 sqlCommand.Parameters.Add("@Tienluong", SqlDbType.Float).Value = txtTienluong.Text;
                 sqlCommand.Parameters.Add("@Hesochucvu", SqlDbType.Float).Value = txtHesochucvu.Text;
-                sqlCommand.Parameters.Add("@", SqlDbType.Float).Value = txtPhai.Text;
+                sqlCommand.Parameters.Add("@", SqlDbType.Float).Value = cbbPhai.Text;
                 sqlCommand.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -283,7 +283,7 @@ namespace QL_HOANDON
         {
             var Manv = txtManv.Text;
             var Hoten = txtHotennv.Text;
-            var Phai = txtPhai.Text;
+            var Phai = cbbPhai.Text;
             var Ngaysinh = dateTimePicker1.Text;
             var Hsluong = txtHesoluong.Text;
             var Hschucvu = txtHesochucvu.Text;
@@ -354,5 +354,10 @@ namespace QL_HOANDON
         {
 
         }
+
+        //private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+
+        //}
     }
 }
