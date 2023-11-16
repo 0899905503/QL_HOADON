@@ -27,7 +27,7 @@ namespace QL_HOANDON
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(queryString, Database.SQLConnect);
                 DataTable table = new DataTable();
                 sqlDataAdapter.Fill(table);
-                dataGridView1.DataSource = table;
+                dgvquanlinhanvien.DataSource = table;
             }
             catch (Exception ex)
             {
@@ -38,15 +38,15 @@ namespace QL_HOANDON
                 Database.SQLConnect.Close();
             }
         }
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvquanlinhanvien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 // Get the value from the clicked cell
-                var Mahang = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-                var Tenhang = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-                var Dongia = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-                var Ngaysanxuat = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+                var Mahang = dgvquanlinhanvien.Rows[e.RowIndex].Cells[0].Value.ToString();
+                var Tenhang = dgvquanlinhanvien.Rows[e.RowIndex].Cells[1].Value.ToString();
+                var Dongia = dgvquanlinhanvien.Rows[e.RowIndex].Cells[2].Value.ToString();
+                var Ngaysanxuat = dgvquanlinhanvien.Rows[e.RowIndex].Cells[3].Value.ToString();
                 textBox1.Text = Mahang;
                 textBox2.Text = Tenhang;
                 textBox3.Text = Dongia;
@@ -54,12 +54,12 @@ namespace QL_HOANDON
             }
         }
 
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        private void dgvquanlinhanvien_SelectionChanged(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            if (dgvquanlinhanvien.SelectedRows.Count > 0)
             {
-                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-                if (dataGridView1.SelectedRows.Count == dataGridView1.Rows.Count) return;
+                DataGridViewRow selectedRow = dgvquanlinhanvien.SelectedRows[0];
+                if (dgvquanlinhanvien.SelectedRows.Count == dgvquanlinhanvien.Rows.Count) return;
                 var Mahang = selectedRow.Cells[0].Value.ToString();
                 var Tenhang = selectedRow.Cells[1].Value.ToString();
                 var Dongia = selectedRow.Cells[2].Value.ToString();
@@ -74,7 +74,7 @@ namespace QL_HOANDON
             var Dongia = textBox3.Text;
             var Ngaysanxuat = dateTimePicker1.Text;
             bool haveValue = false;
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            foreach (DataGridViewRow row in dgvquanlinhanvien.Rows)
             {
                 if (row.Cells[0].Value?.ToString() == Mahang)
                 {
@@ -126,7 +126,7 @@ namespace QL_HOANDON
         private void btnXoa_Click(object sender, EventArgs e)
         {
             var rowsDeleted = 0;
-            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            foreach (DataGridViewRow row in dgvquanlinhanvien.SelectedRows)
             {
                 var Mahang = row.Cells[0].Value?.ToString();
                 if (!string.IsNullOrEmpty(Mahang))
