@@ -20,7 +20,7 @@ namespace QL_HOADON
         private void btnLuu_Click(object sender, EventArgs e)
         {
             var User_Name = textBoxUserName.Text;
-            var Name = txtTenTK.Text;
+            var Name = textBoxTenTaiKhoan.Text;
             var Password = txtPass.Text;
             var Quyen = cbBoxQuyen.Text;
 
