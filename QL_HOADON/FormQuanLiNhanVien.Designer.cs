@@ -29,11 +29,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormQuanLiNhanVien));
             panel1 = new Panel();
+            cbbPhai = new ComboBox();
+            dateTimePicker1 = new DateTimePicker();
             cbbmaphong = new ComboBox();
             label11 = new Label();
             label9 = new Label();
             txtHesochucvu = new TextBox();
-            txtPhai = new TextBox();
             txtHotennv = new TextBox();
             txtTienluong = new TextBox();
             txtHesoluong = new TextBox();
@@ -55,7 +56,6 @@
             btnThem = new Button();
             label10 = new Label();
             dgvquanlinhanvien = new DataGridView();
-            dateTimePicker1 = new DateTimePicker();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvquanlinhanvien).BeginInit();
@@ -64,12 +64,12 @@
             // panel1
             // 
             panel1.BackColor = Color.Fuchsia;
+            panel1.Controls.Add(cbbPhai);
             panel1.Controls.Add(dateTimePicker1);
             panel1.Controls.Add(cbbmaphong);
             panel1.Controls.Add(label11);
             panel1.Controls.Add(label9);
             panel1.Controls.Add(txtHesochucvu);
-            panel1.Controls.Add(txtPhai);
             panel1.Controls.Add(txtHotennv);
             panel1.Controls.Add(txtTienluong);
             panel1.Controls.Add(txtHesoluong);
@@ -85,6 +85,23 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(857, 284);
             panel1.TabIndex = 1;
+            // 
+            // cbbPhai
+            // 
+            cbbPhai.FormattingEnabled = true;
+            cbbPhai.Items.AddRange(new object[] { "nam", "nữ" });
+            cbbPhai.Location = new Point(626, 110);
+            cbbPhai.Name = "cbbPhai";
+            cbbPhai.Size = new Size(176, 28);
+            cbbPhai.TabIndex = 30;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(212, 111);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(176, 27);
+            dateTimePicker1.TabIndex = 29;
+            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
             // 
             // cbbmaphong
             // 
@@ -121,13 +138,6 @@
             txtHesochucvu.Name = "txtHesochucvu";
             txtHesochucvu.Size = new Size(176, 27);
             txtHesochucvu.TabIndex = 16;
-            // 
-            // txtPhai
-            // 
-            txtPhai.Location = new Point(626, 111);
-            txtPhai.Name = "txtPhai";
-            txtPhai.Size = new Size(176, 27);
-            txtPhai.TabIndex = 15;
             // 
             // txtHotennv
             // 
@@ -355,14 +365,6 @@
             dgvquanlinhanvien.TabIndex = 18;
             dgvquanlinhanvien.CellContentClick += dgvquanlynhanvien_CellContentClick;
             // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new Point(212, 111);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(176, 27);
-            dateTimePicker1.TabIndex = 29;
-            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
-            // 
             // FormQuanLiNhanVien
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -397,7 +399,6 @@
         private Label label7;
         private Label label9;
         private TextBox txtHesochucvu;
-        private TextBox txtPhai;
         private TextBox txtHotennv;
         private TextBox txtTienluong;
         private TextBox txtHesoluong;
@@ -413,5 +414,6 @@
         private Label label11;
         private ComboBox cbbmaphong;
         private ComboBox cbbngaysinh;
+        private ComboBox cbbPhai;
     }
 }
