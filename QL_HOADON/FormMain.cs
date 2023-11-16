@@ -8,6 +8,19 @@ namespace QL_HOADON
         public FormMain()
         {
             InitializeComponent();
+            LoadForm();
+        }
+        public void LoadForm()
+        {
+            if (AppData.user == null) Application.Exit();
+            else
+            {
+                var isAdmin = AppData.user.IsAdmin();
+                if (isAdmin == false)
+                {
+                    thongTinTaiKhoanToolStripMenuItem.Visible = false;
+                }
+            }
         }
 
         private void quanLiPhongBanToolStripMenuItem_Click(object sender, EventArgs e)
@@ -29,6 +42,7 @@ namespace QL_HOADON
                 form.Hide();
                 form.Closed += (s, args) => this.Close();
             }
+            AppData.user = null;
             var formLogin = new FormLogin();
             formLogin.Show();
         }
