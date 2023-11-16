@@ -13,7 +13,7 @@ public class User
         this.username = username;
         this.name = name;
         this.password = password;
-        this.perrmission = password;
+        this.perrmission = perrmission;
     }
     public bool IsAdmin()
     {

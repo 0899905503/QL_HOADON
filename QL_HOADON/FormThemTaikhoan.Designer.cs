@@ -32,12 +32,12 @@
             label7 = new Label();
             panel1 = new Panel();
             label1 = new Label();
-            txtID_User = new TextBox();
+            textBoxUserName = new TextBox();
             txtPass = new TextBox();
             label2 = new Label();
-            textBox3 = new TextBox();
+            cbBoxQuyen = new ComboBox();
             txtQuyen = new Label();
-            textBox4 = new TextBox();
+            textBoxTenTaiKhoan = new TextBox();
             txtTenTK = new Label();
             panel2 = new Panel();
             btnLuu = new Button();
@@ -59,13 +59,13 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(192, 255, 255);
-            panel1.Controls.Add(textBox3);
+            panel1.Controls.Add(cbBoxQuyen);
             panel1.Controls.Add(txtQuyen);
-            panel1.Controls.Add(textBox4);
+            panel1.Controls.Add(textBoxTenTaiKhoan);
             panel1.Controls.Add(txtTenTK);
             panel1.Controls.Add(txtPass);
             panel1.Controls.Add(label2);
-            panel1.Controls.Add(txtID_User);
+            panel1.Controls.Add(textBoxUserName);
             panel1.Controls.Add(label1);
             panel1.Location = new Point(12, 107);
             panel1.Name = "panel1";
@@ -79,14 +79,14 @@
             label1.Name = "label1";
             label1.Size = new Size(59, 20);
             label1.TabIndex = 0;
-            label1.Text = "ID_User";
+            label1.Text = "Username";
             // 
-            // txtID_User
+            // textBoxUserName
             // 
-            txtID_User.Location = new Point(146, 25);
-            txtID_User.Name = "txtID_User";
-            txtID_User.Size = new Size(125, 27);
-            txtID_User.TabIndex = 1;
+            textBoxUserName.Location = new Point(146, 25);
+            textBoxUserName.Name = "textBoxUserName";
+            textBoxUserName.Size = new Size(125, 27);
+            textBoxUserName.TabIndex = 1;
             // 
             // txtPass
             // 
@@ -104,12 +104,15 @@
             label2.TabIndex = 2;
             label2.Text = "Mật khẩu";
             // 
-            // textBox3
+            // cbBoxQuyen
             // 
-            textBox3.Location = new Point(472, 104);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(125, 27);
-            textBox3.TabIndex = 7;
+            cbBoxQuyen.Location = new Point(472, 104);
+            cbBoxQuyen.Name = "cbBoxQuyen";
+            cbBoxQuyen.Size = new Size(125, 27);
+            cbBoxQuyen.TabIndex = 7;
+            cbBoxQuyen.Items.Add("USER");
+            cbBoxQuyen.Items.Add("ADMIN");
+            cbBoxQuyen.DropDownStyle = ComboBoxStyle.DropDownList;
             // 
             // txtQuyen
             // 
@@ -120,12 +123,12 @@
             txtQuyen.TabIndex = 6;
             txtQuyen.Text = "Quyền";
             // 
-            // textBox4
+            // textBoxTenTaiKhoan
             // 
-            textBox4.Location = new Point(472, 25);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(125, 27);
-            textBox4.TabIndex = 5;
+            textBoxTenTaiKhoan.Location = new Point(472, 25);
+            textBoxTenTaiKhoan.Name = "textBoxTenTaiKhoan";
+            textBoxTenTaiKhoan.Size = new Size(125, 27);
+            textBoxTenTaiKhoan.TabIndex = 5;
             // 
             // txtTenTK
             // 
@@ -158,6 +161,7 @@
             btnLuu.Text = "Lưu";
             btnLuu.TextAlign = ContentAlignment.MiddleRight;
             btnLuu.UseVisualStyleBackColor = true;
+            btnLuu.Click += btnLuu_Click;
             // 
             // btnThoat
             // 
@@ -193,13 +197,13 @@
 
         private Label label7;
         private Panel panel1;
-        private TextBox textBox3;
+        private ComboBox cbBoxQuyen;
         private Label txtQuyen;
-        private TextBox textBox4;
+        private TextBox textBoxTenTaiKhoan;
         private Label txtTenTK;
         private TextBox txtPass;
         private Label label2;
-        private TextBox txtID_User;
+        private TextBox textBoxUserName;
         private Label label1;
         private Panel panel2;
         private Button btnLuu;
