@@ -85,28 +85,6 @@ namespace QL_HOANDON
                 cbbmaphong.Text = Maphong;
                 dateTimePicker1.Text = Ngaysinh;
             }
-            if (dgvquanlinhanvien.SelectedRows.Count > 0)
-            {
-                // Lấy dòng được chọn
-                DataGridViewRow selectedRow = dgvquanlinhanvien.SelectedRows[0];
-
-                // Lấy giá trị từ cột mong muốn (ở đây là cột có tên "TenCot")
-                string cellManv = selectedRow.Cells["manv"].Value.ToString();
-                string cellHoten = selectedRow.Cells["hoten"].Value.ToString();
-                string cellPhai = selectedRow.Cells["phai"].Value.ToString();
-                string cellNgaysinh = selectedRow.Cells["ngaysinh"].Value.ToString();
-                string cellHsluong = selectedRow.Cells["hsluong"].Value.ToString();
-                string cellHschucvu = selectedRow.Cells["hschucvu"].Value.ToString();
-                string cellMaphong = selectedRow.Cells["maphong"].Value.ToString();
-                // Hiển thị giá trị trong TextBox
-                txtManv.Text = cellManv;
-                txtHotennv.Text = cellHoten;
-                cbbPhai.Text = cellPhai;
-                dateTimePicker1.Text = cellNgaysinh;
-                txtHesoluong.Text = cellHsluong;
-                txtHesochucvu.Text = cellHschucvu;
-                cbbmaphong.Text = cellMaphong;
-            }
         }
 
 
