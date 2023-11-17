@@ -17,7 +17,34 @@ namespace QL_HOADON
         public FormTimKiemHoaDon()
         {
             InitializeComponent();
+            LoadForm();
         }
+
+        public void LoadForm()
+        {
+            try
+            {
+                string queryString = "SELECT SOHD FROM HOADON";
+                Database.SQLConnect.Open();
+                SqlCommand sqlCommand = new SqlCommand();
+                sqlCommand.Connection = Database.SQLConnect;
+                sqlCommand.CommandText = queryString;
+                SqlDataReader reader = sqlCommand.ExecuteReader();
+                while (reader.Read())
+                {
+                    comboBox1.Items.Add(reader.GetString("SOHD"));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Có lỗi: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Database.SQLConnect.Close();
+            }
+        }
+
         public void SearchHoaDon(object sender, EventArgs e)
         {
             var hoadonID = comboBox1.Text;
@@ -40,8 +67,17 @@ namespace QL_HOADON
                     textBox2.Text = dataGridView1.Rows[0].Cells[3].Value.ToString();
                     textBox3.Text = dataGridView1.Rows[0].Cells[2].Value.ToString();
                     textBox4.Text = dataGridView1.Rows[0].Cells[4].Value.ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Có lỗi: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
                     Database.SQLConnect.Close();
-
+                }
+                try
+                {
                     string queryString2 = @"SELECT SUM(CTHOADON.SOLUONG * HANGHOA.DONGIA) as tonghoadon FROM HOADON
                     JOIN CTHOADON on CTHOADON.SOHD = HOADON.SOHD
                     JOIN HANGHOA on HANGHOA.MAHH = CTHOADON.MAHH
@@ -54,13 +90,22 @@ namespace QL_HOADON
                     SqlDataReader reader = sqlCommand.ExecuteReader();
                     while (reader.Read())
                     {
-                        textBox5.Text = reader.GetDouble("tonghoadon").ToString();
+                        if (!reader.IsDBNull("tonghoadon"))
+                        {
+                            double value = reader.GetDouble("tonghoadon");
+                            textBox5.Text = value.ToString();
+                        }
+
+                        else textBox5.Text = "0";
                     }
-                    Database.SQLConnect.Close();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"Có lỗi: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    Database.SQLConnect.Close();
                 }
             }
         }
