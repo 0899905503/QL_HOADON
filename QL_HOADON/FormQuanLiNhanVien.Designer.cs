@@ -361,10 +361,8 @@
             dgvquanlinhanvien.Name = "dgvquanlinhanvien";
             dgvquanlinhanvien.RowHeadersWidth = 51;
             dgvquanlinhanvien.RowTemplate.Height = 29;
-            dgvquanlinhanvien.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dgvquanlinhanvien.Size = new Size(1223, 199);
             dgvquanlinhanvien.TabIndex = 18;
-           // dgvquanlinhanvien.CellClick += dgvquanlinhanvien_CellClick;
             dgvquanlinhanvien.CellContentClick += dgvquanlynhanvien_CellContentClick;
             // 
             // FormQuanLiNhanVien
