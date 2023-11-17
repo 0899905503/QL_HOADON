@@ -45,12 +45,12 @@ namespace QL_HOANDON
                 // Get the value from the clicked cell
                 var Mahang = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
                 var Tenhang = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-                var Dongia = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-                var Ngaysanxuat = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+                var Ngaysanxuat = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                var Dongia = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();             
                 textBox1.Text = Mahang;
                 textBox2.Text = Tenhang;
-                textBox3.Text = Dongia;
                 dateTimePicker1.Text = Ngaysanxuat;
+                textBox3.Text = Dongia;               
             }
         }
 
@@ -62,8 +62,8 @@ namespace QL_HOANDON
                 if (dataGridView1.SelectedRows.Count == dataGridView1.Rows.Count) return;
                 var Mahang = selectedRow.Cells[0].Value.ToString();
                 var Tenhang = selectedRow.Cells[1].Value.ToString();
-                var Dongia = selectedRow.Cells[2].Value.ToString();
-                var Ngaysanxuat = selectedRow.Cells[3].Value.ToString();
+                var Ngaysanxuat = selectedRow.Cells[2].Value.ToString();
+                var Dongia = selectedRow.Cells[3].Value.ToString();             
                 dateTimePicker1.Text = Ngaysanxuat;
             }
         }
