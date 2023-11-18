@@ -75,7 +75,7 @@ namespace QL_HOANDON
             //    cbbmaphong.Text = selectedRow.Cells["MAPHONG"].Value.ToString();
             //}
             }
-            private void dgvquanlynhanvien_SelectionChanged(object sender, EventArgs e)
+        private void dgvquanlynhanvien_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvquanlinhanvien.SelectedRows.Count > 0)
             {
@@ -241,6 +241,9 @@ namespace QL_HOANDON
             cbbmaphong.ResetText();
             dateTimePicker1.ResetText();
             txtManv.Focus();
+            btnLuu.Enabled = true;
+            btnThem.Enabled = false;
+            btnSua.Enabled = false;
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
