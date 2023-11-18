@@ -74,7 +74,7 @@ namespace QL_HOANDON
             //    txtTienluong.Text = selectedRow.Cells["TIENLUONG"].Value.ToString();
             //    cbbmaphong.Text = selectedRow.Cells["MAPHONG"].Value.ToString();
             //}
-            }
+        }
         private void dgvquanlynhanvien_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvquanlinhanvien.SelectedRows.Count > 0)
