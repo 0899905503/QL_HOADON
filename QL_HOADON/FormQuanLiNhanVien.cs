@@ -56,14 +56,26 @@ namespace QL_HOANDON
                 txtManv.Text = Manv;
                 txtHotennv.Text = Hoten;
                 cbbPhai.Text = Phai;
-                cbbngaysinh.Text = Ngaysinh;
+                dateTimePicker1.Text = Ngaysinh;
                 txtHesoluong.Text = Hsluong;
                 txtHesochucvu.Text = Hschucvu;
                 cbbmaphong.Text = Maphong;
                 dateTimePicker1.Text = Ngaysinh;
             }
-        }
-        private void dgvquanlynhanvien_SelectionChanged(object sender, EventArgs e)
+            //if (e.RowIndex >= 0)
+            //{
+            //    DataGridViewRow selectedRow = dgvquanlinhanvien.Rows[e.RowIndex];
+            //    txtManv.Text = selectedRow.Cells["MANV"].Value.ToString();
+            //    txtHotennv.Text = selectedRow.Cells["HOTEN"].Value.ToString();
+            //    dateTimePicker1 = selectedRow.Cells["NGAYSINH"];
+            //    cbbPhai.Text = selectedRow.Cells["PHAI"].Value.ToString();
+            //    txtHesoluong.Text = selectedRow.Cells["HSLUONG"].Value.ToString();
+            //    txtHesochucvu.Text = selectedRow.Cells["HSCHUCVU"].Value.ToString();
+            //    txtTienluong.Text = selectedRow.Cells["TIENLUONG"].Value.ToString();
+            //    cbbmaphong.Text = selectedRow.Cells["MAPHONG"].Value.ToString();
+            //}
+            }
+            private void dgvquanlynhanvien_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvquanlinhanvien.SelectedRows.Count > 0)
             {
@@ -76,13 +88,6 @@ namespace QL_HOANDON
                 var Hsluong = selectedRow.Cells[4].Value.ToString();
                 var Hschucvu = selectedRow.Cells[5].Value.ToString();
                 var Maphong = selectedRow.Cells[6].Value.ToString();
-                txtManv.Text = Manv;
-                txtHotennv.Text = Hoten;
-                cbbPhai.Text = Phai;
-                cbbngaysinh.Text = Ngaysinh;
-                txtHesoluong.Text = Hsluong;
-                txtHesochucvu.Text = Hschucvu;
-                cbbmaphong.Text = Maphong;
                 dateTimePicker1.Text = Ngaysinh;
             }
         }
