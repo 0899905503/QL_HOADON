@@ -62,12 +62,12 @@ namespace QL_HOADON
                     DataTable table = new DataTable();
                     sqlDataAdapter.Fill(table);
                     dataGridView1.DataSource = table;
-                    textBox1.Text = dataGridView1.Rows[0].Cells[1].Value.ToString();
-                    textBox2.Text = dataGridView1.Rows[0].Cells[3].Value.ToString();
-                    textBox3.Text = dataGridView1.Rows[0].Cells[5].Value.ToString();
-                    textBox4.Text = dataGridView1.Rows[0].Cells[2].Value.ToString();
-                    textBox5.Text = dataGridView1.Rows[0].Cells[4].Value.ToString() == "1" ? "nam" : "nu";
-                    textBox6.Text = dataGridView1.Rows[0].Cells[6].Value.ToString();
+                    textBox1.Text = dataGridView1.Rows[0].Cells[4].Value.ToString() == "1" ? "nam" : "nu";
+                    textBox2.Text = dataGridView1.Rows[0].Cells[6].Value.ToString();
+                    textBox3.Text = dataGridView1.Rows[0].Cells[4].Value.ToString();
+                    textBox4.Text = dataGridView1.Rows[0].Cells[1].Value.ToString();
+                    textBox5.Text = dataGridView1.Rows[0].Cells[5].Value.ToString();
+                    textBox6.Text = dataGridView1.Rows[0].Cells[3].Value.ToString();
                 }
                 catch (Exception ex)
                 {
