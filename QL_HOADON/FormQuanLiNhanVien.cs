@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Globalization;
 
 namespace QL_HOANDON
 {
@@ -53,6 +54,7 @@ namespace QL_HOANDON
                 var Hsluong = dgvquanlinhanvien.Rows[e.RowIndex].Cells[4].Value.ToString();
                 var Hschucvu = dgvquanlinhanvien.Rows[e.RowIndex].Cells[5].Value.ToString();
                 var Maphong = dgvquanlinhanvien.Rows[e.RowIndex].Cells[6].Value.ToString();
+                var TienLuong = (float.Parse(Hsluong, CultureInfo.InvariantCulture.NumberFormat) * 1390000) + (float.Parse(Hschucvu, CultureInfo.InvariantCulture.NumberFormat) * 1390000);
                 txtManv.Text = Manv;
                 txtHotennv.Text = Hoten;
                 cbbPhai.Text = Phai;
@@ -61,6 +63,7 @@ namespace QL_HOANDON
                 txtHesochucvu.Text = Hschucvu;
                 cbbmaphong.Text = Maphong;
                 dateTimePicker1.Text = Ngaysinh;
+                txtTienluong.Text = TienLuong.ToString();
             }
             //if (e.RowIndex >= 0)
             //{
